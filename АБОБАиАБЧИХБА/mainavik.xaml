@@ -1,0 +1,64 @@
+﻿<Window x:Class="АБОБАиАБЧИХБА.mainavik"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:АБОБАиАБЧИХБА"
+        mc:Ignorable="d"
+        Title="mainavik" Height="450" Width="800" Loaded="Window_Loaded" ResizeMode="CanMinimize">
+    <Window.Resources>
+        <local:больницаDataSet1 x:Key="больницаDataSet1"/>
+        <CollectionViewSource x:Key="таблица_о_пациентахViewSource" Source="{Binding таблица_о_пациентах, Source={StaticResource больницаDataSet1}}"/>
+        <CollectionViewSource x:Key="таблица__о_сотрудникахViewSource" Source="{Binding таблица__о_сотрудниках, Source={StaticResource больницаDataSet1}}"/>
+    </Window.Resources>
+    <Window.Foreground>
+        <ImageBrush/>
+    </Window.Foreground>
+    <Grid>
+        <Menu HorizontalAlignment="Left" Height="29" VerticalAlignment="Top" Width="151">
+            <MenuItem Header="Личный кабинет" FontSize="18" FontFamily="Lucida Calligraphy" Height="30">
+                <Button x:Name="exit" Content="Выйти" Click="Exit_Click"/>
+
+            </MenuItem>
+        </Menu>
+        <TabControl HorizontalAlignment="Left" Height="390" Margin="0,29,0,0" VerticalAlignment="Top" Width="792">
+            <TabItem Header="Данные о пациентах" Margin="-2,0,-181,0" Height="24" VerticalAlignment="Bottom" Background="#FF9E9C8F" FontSize="16">
+                <Grid DataContext="{StaticResource таблица_о_пациентахViewSource}" Background="White">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="397*"/>
+                        <ColumnDefinition Width="389*"/>
+                    </Grid.ColumnDefinitions>
+                    <DataGrid x:Name="таблица_о_пациентахDataGrid" AutoGenerateColumns="False" Grid.ColumnSpan="2" EnableRowVirtualization="True" ItemsSource="{Binding}" RowDetailsVisibilityMode="VisibleWhenSelected">
+                        <DataGrid.Background>
+                            <ImageBrush ImageSource="ae73u6wokYo.jpg"/>
+                        </DataGrid.Background>
+                        <DataGrid.Columns>
+                            <DataGridTextColumn x:Name="фИОColumn" Binding="{Binding ФИО}" Header="ФИО" Width="SizeToHeader"/>
+                            <DataGridTextColumn x:Name="номер_палатыColumn" Binding="{Binding Номер палаты}" Header="Номер палаты" Width="SizeToHeader"/>
+                            <DataGridTextColumn x:Name="дата_рожденияColumn" Binding="{Binding Дата рождения}" Header="Дата рождения" Width="SizeToHeader"/>
+                            <DataGridTextColumn x:Name="заболеваниеColumn" Binding="{Binding Заболевание}" Header="Заболевание" Width="SizeToHeader"/>
+                            <DataGridTextColumn x:Name="дата_заболеванияColumn" Binding="{Binding Дата заболевания}" Header="Дата заболевания" Width="SizeToHeader"/>
+                            <DataGridTextColumn x:Name="лечащий_врачColumn" Binding="{Binding Лечащий врач}" Header="Лечащий врач" Width="SizeToHeader"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Данные о сотрудниках" Margin="187,0,-408,2" Height="22" VerticalAlignment="Bottom" Background="#FF9F9D90" FontSize="16">
+                <Grid Background="White" DataContext="{StaticResource таблица__о_сотрудникахViewSource}">
+                    <DataGrid x:Name="таблица__о_сотрудникахDataGrid" AutoGenerateColumns="False" EnableRowVirtualization="True" ItemsSource="{Binding}" RowDetailsVisibilityMode="VisibleWhenSelected">
+                        <DataGrid.Background>
+                            <ImageBrush ImageSource="EvwS2pTyGdM.jpg"/>
+                        </DataGrid.Background>
+                        <DataGrid.Columns>
+                            <DataGridTextColumn x:Name="фИОColumn1" Binding="{Binding ФИО}" Header="ФИО" Width="SizeToHeader"/>
+                            <DataGridTextColumn x:Name="должностьColumn" Binding="{Binding Должность}" Header="Должность" Width="SizeToHeader"/>
+                            <DataGridTextColumn x:Name="стаж_работыColumn" Binding="{Binding Стаж работы}" Header="Стаж работы" Width="SizeToHeader"/>
+                            <DataGridTextColumn x:Name="_В_отпуске__Column" Binding="{Binding В отпуске ?}" Header="В отпуске ?" Width="SizeToHeader"/>
+                            <DataGridTextColumn x:Name="свободенColumn" Binding="{Binding Свободен}" Header="Свободен" Width="SizeToHeader"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </Grid>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>

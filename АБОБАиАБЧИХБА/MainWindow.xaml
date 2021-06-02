@@ -1,0 +1,38 @@
+﻿<Window x:Class="АБОБАиАБЧИХБА.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:АБОБАиАБЧИХБА"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="366.386" ResizeMode="CanMinimize">
+    <Window.Background>
+        <ImageBrush ImageSource="Screenshot_2021-05-20-15-28-30-935_com.vkontakte.android.jpg"/>
+    </Window.Background>
+    <Grid Margin="0,0,2,0">
+        <Button Content="Вход" HorizontalAlignment="Left"   Margin="16,360,0,0" VerticalAlignment="Top" Width="67" FontSize="18" FontFamily="Segoe UI Semilight" Height="28" Background="#FF998574" Foreground="White" Click="Button_Click">
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="10">
+
+                    </Setter>
+                </Style>
+            </Button.Resources>
+        </Button>
+        <Button Content="Регистрация" HorizontalAlignment="Left" Margin="187,360,0,0" VerticalAlignment="Top" Width="153" FontSize="18" FontFamily="Segoe UI Semilight" Background="#FF998574" Foreground="White" Click="Button_Click_1">
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="10">
+
+                    </Setter>
+                </Style>
+            </Button.Resources>
+        </Button>
+        <Label Content="Логин:" HorizontalAlignment="Left" Margin="16,243,0,0" VerticalAlignment="Top" FontSize="18" FontFamily="Segoe UI Semilight" RenderTransformOrigin="0.329,0.559" Foreground="White"/>
+        <Label Content="Пароль:" HorizontalAlignment="Left" Margin="16,290,0,0" VerticalAlignment="Top" FontSize="18" FontFamily="Segoe UI Semilight" Foreground="White"/>
+        <TextBox x:Name="log" HorizontalAlignment="Left" Height="27" Margin="162,250,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="178" FontSize="18" FontFamily="Segoe UI Semilight" TextChanged="TextBox_TextChanged" Background="#FF503D36" Foreground="White"/>
+        <Label Content="'&quot;Больница АБОБАиАБЧИХБА&quot;" HorizontalAlignment="Left" Margin="41,10,0,0" VerticalAlignment="Top" FontSize="18" FontFamily="Lucida Sans Unicode" Foreground="White"/>
+        <PasswordBox x:Name="pass" HorizontalAlignment="Left"  Margin="162,297,0,0" VerticalAlignment="Top" Width="178" Height="27" FontSize="18" FontFamily="Segoe UI Semilight" Background="#FF503D36" Foreground="White"/>
+
+    </Grid>
+</Window>
